@@ -9,7 +9,7 @@ typedef struct BNode{
 BNode *bsAlloc();
 /* add new name to the tree*/
 
-struct BNode addNode(BNode *nb, char *name);
+void addNode(BNode *nb, char *name);
 
 /* removes a name from tree*/
 
@@ -25,6 +25,5 @@ void readFile();
 
 
 #endif
-
 
   
