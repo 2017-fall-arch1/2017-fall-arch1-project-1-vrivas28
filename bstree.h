@@ -3,23 +3,24 @@
 
 typedef struct BNode{
   struct BNode *right, *left;
-  char *value;
+  char *name;
 }BNode;
 
-BNode *bsAlloc();
+
+BNode *bsAlloc(char *eName);
 /* add new name to the tree*/
 
-struct BNode addNode(BNode *nb, char *name);
+struct BNode addNode(BNode *node, char *eName);
 
 /* removes a name from tree*/
 
-void removeNode(BNode *nb, char *name);
+void removeNode(BNode *node, char *eName);
 
 /* Prints the values of the tree in order*/
 
-void printTree(BNode *root);
+void printTree(BNode *node);
 
-void writeInFile(char *namw);
+void writeInFile(char *eName);
 
 void readFile();
 
