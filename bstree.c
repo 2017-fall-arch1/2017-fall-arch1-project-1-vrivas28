@@ -26,12 +26,49 @@ BNode addNode(BNode *node, char *eName)
   }
   return node;
 }
-void removeNode(BNode *node, char *eName)
+BNode minNode(BNode *node)
+{
+  if(node->left == NULL)
+    return node;
+  return minNode(node->left);
+}
+/* this method removes a given node from the tree*/
+/* This piece of code was referenced from https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/*/
+BNode removeNode(BNode *node, char *eName)
 {
   if(node == NULL)
     return node;
-  if(strncmp(node->name, eName) < 0){
+  if(strcmp(node->name, eName) < 0){
+    node->right = removeNode(node, eName);
   }
+  else if(strcmp(node->name, eName) > 0){
+    node->left = removeNode(node,eName);
+  }
+  else{
+    if(node->left == NULL && node->right == NULL){
+      free(node);
+      return null;
+    }
+    else if(node->left == NULL){
+      BNode *temp1 = (BNode *)malloc(sizeof(BNode));
+      temp1 = node->right;
+      free(node);
+      return temp1;
+    }
+    else if(node->right == NULL){
+      BNode *temp2 = (BNode *)malloc(sizeof(BNode));
+      temp2 = node->left;
+      free(node);
+      return temp2;
+    }
+    else{
+      BNode *temp3 = (BNode *)malloc(sizeof(BNode));
+      temp3 = minNode(node->right);
+      node->name = temp3 ->name;
+      node->right = removeNode(node->right,temp3->name);
+    }
+  }
+  return node;
 }
 /* Will open the file and extract each name and add it to the tree.*/
 BNode readFile(BNode *node, char *fileName)

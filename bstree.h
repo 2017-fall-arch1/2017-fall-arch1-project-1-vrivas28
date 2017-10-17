@@ -13,8 +13,10 @@ BNode *bsAlloc(char *eName);
 struct BNode addNode(BNode *node, char *eName);
 
 /* removes a name from tree*/
+struct BNode  removeNode(BNode *node, char *eName);
 
-void removeNode(BNode *node, char *eName);
+/* Will find the minimum node of the tree*/
+struct BNode minNode(BNode *node);
 
 /* Prints the values of the tree in order*/
 
@@ -26,6 +28,3 @@ void readFile();
 
 
 #endif
-
-
-  
