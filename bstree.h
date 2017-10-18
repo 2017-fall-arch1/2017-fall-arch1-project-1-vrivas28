@@ -19,9 +19,9 @@ BNode* minNode(BNode *node);
 /* Prints the values of the tree in order*/
 
 void printTree(BNode *node);
-
+/*Writes the nodes inoder into the file*/
 void writeInFile(char *eName);
-
+/* Reads the names of a file and adds them to the tree*/
 BNode* readFile(BNode *node, char *eName);
 
 

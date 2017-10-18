@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "bstree.h"
-
+//Creates a new node
 BNode* bsAlloc(char *eName)
 {
   BNode *nb = (BNode *)malloc(sizeof(BNode));
@@ -12,7 +12,7 @@ BNode* bsAlloc(char *eName)
   
   return nb;
 }
-
+// Adds a new node to the ninary serach tree.
 BNode* addNode(BNode *node, char *eName)
 {
   if(node == NULL)
@@ -26,6 +26,7 @@ BNode* addNode(BNode *node, char *eName)
   }
   return node;
 }
+/* Finds the node with the smallest value of the tree*/
 BNode* minNode(BNode *node)
 {
   if(node->left == NULL)
@@ -45,10 +46,12 @@ BNode* removeNode(BNode *node, char *eName)
     node->left = removeNode(node,eName);
   }
   else{
+    /*node had no children*/
     if(node->left == NULL && node->right == NULL){
       free(node);
       return NULL;
     }
+    /*Removes a node that has one child*/ 
     else if(node->left == NULL){
       BNode *temp1 = (BNode *)malloc(sizeof(BNode));
       temp1 = node->right;
@@ -62,9 +65,10 @@ BNode* removeNode(BNode *node, char *eName)
       return temp2;
     }
     else{
+      //Has both children and raises the right child as a new root
       BNode *temp3 = (BNode *)malloc(sizeof(BNode));
       temp3 = minNode(node->right);
-      node->name = temp3 ->name;
+      node->name = temp3->name;
       node->right = removeNode(node->right,temp3->name);
     }
   }
@@ -83,7 +87,7 @@ BNode* readFile(BNode *node, char *fileName)
     }
   fclose(fp);
   return node;
-}
+}//Opens a file and write the tree inoder
 void writeToFile(BNode *node, char *fileName)
 {
   FILE *fp;
@@ -97,6 +101,7 @@ void writeToFile(BNode *node, char *fileName)
   fprintf(fp,"%s\n",node->name);
   writeToFile(node->right,fileName);
 }
+//Prints the nodes of tree inorder 
 void printTree(BNode *node)
 {
   if(node == NULL)
