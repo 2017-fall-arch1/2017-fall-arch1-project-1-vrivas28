@@ -5,15 +5,15 @@
 
 BNode *bsAlloc(char *eName)
 {
-  BNode *nb = (BTree *)malloc(sizeof(BTree));
-  nb->malloc(strlen(eName)+1);
+  BNode *nb = (BNode *)malloc(sizeof(BNode));
+  nb->name = malloc(strlen(eName)+1);
   nb->right = NULL;
   nb->left = NULL;
   
   return nb;
 }
 
-BNode addNode(BNode *node, char *eName)
+BNode *addNode(BNode *node, char *eName)
 {
   if(node == NULL)
     return node = *bsAlloc(eName);
@@ -26,7 +26,7 @@ BNode addNode(BNode *node, char *eName)
   }
   return node;
 }
-BNode minNode(BNode *node)
+BNode *minNode(BNode *node)
 {
   if(node->left == NULL)
     return node;
@@ -34,7 +34,7 @@ BNode minNode(BNode *node)
 }
 /* this method removes a given node from the tree*/
 /* This piece of code was referenced from https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/*/
-BNode removeNode(BNode *node, char *eName)
+BNode *removeNode(BNode *node, char *eName)
 {
   if(node == NULL)
     return node;
@@ -71,7 +71,7 @@ BNode removeNode(BNode *node, char *eName)
   return node;
 }
 /* Will open the file and extract each name and add it to the tree.*/
-BNode readFile(BNode *node, char *fileName)
+BNode *readFile(BNode *node, char *fileName)
 {
   FILE *fp;
   fp = fopen(fileName,"r");

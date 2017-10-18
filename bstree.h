@@ -7,16 +7,16 @@ typedef struct BNode{
 }BNode;
 
 
-BNode *bsAlloc(char *eName);
+struct BNode *bsAlloc(char *eName);
 /* add new name to the tree*/
 
-struct BNode addNode(BNode *node, char *eName);
+struct BNode *addNode(BNode *node, char *eName);
 
 /* removes a name from tree*/
-struct BNode  removeNode(BNode *node, char *eName);
+struct BNode  *removeNode(BNode *node, char *eName);
 
 /* Will find the minimum node of the tree*/
-struct BNode minNode(BNode *node);
+struct BNode *minNode(BNode *node);
 
 /* Prints the values of the tree in order*/
 
