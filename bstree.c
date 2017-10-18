@@ -80,6 +80,7 @@ BNode* readFile(BNode *node, char *fileName)
   FILE *fp;
   fp = fopen(fileName,"r");
   char *name = (char *)malloc(sizeof(char));
+  // Got help from peer Gerardo Muela to know how to stop reading a file
   while(!feof(fp))
     {
       fscanf(fp,"%s", name);
