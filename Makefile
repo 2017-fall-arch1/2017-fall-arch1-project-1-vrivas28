@@ -17,4 +17,3 @@ clean:
 
 demo: bstree
 	(echo first; echo "second line"; echo "third and last") | ./bstree
-
