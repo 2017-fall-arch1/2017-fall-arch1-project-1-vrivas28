@@ -1,4 +1,4 @@
-all: llDemo
+all: bstree
 
 CFLAGS=-g -O3
 
@@ -6,18 +6,15 @@ CFLAGS=-g -O3
 #   $@ is the production's target
 #   $^ are the production's prerequisites
 
-llDemo: llist.o llDemo.o
+bstree: bstree.o
 	cc -o $@ $^
 
-llist.o: llist.c llist.h
-	cc -c $(CFLAGS) llist.c
-
-llDemo.o: llDemo.c llist.h
-	cc -c $(CFLAGS) llDemo.c
+bstree.o: bstree.c bstree.h
+	cc -c $(CFLAGS) bstree.c
 
 clean:
-	rm -f *.o llDemo
+	rm -f *.o bstree
 
-demo: llDemo
-	(echo first; echo "second line"; echo "third and last") | ./llDemo
+demo: bstree
+	(echo first; echo "second line"; echo "third and last") | ./bstree
 
