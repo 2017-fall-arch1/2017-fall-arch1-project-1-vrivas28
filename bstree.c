@@ -16,7 +16,7 @@ BNode *bsAlloc(char *eName)
 BNode *addNode(BNode *node, char *eName)
 {
   if(node == NULL)
-    return node = *bsAlloc(eName);
+     node = *bsAlloc(eName);
   if(strcmp(node->name,eName)<0)
     {
       node->right = addNode(node->right, eName);
@@ -47,7 +47,7 @@ BNode *removeNode(BNode *node, char *eName)
   else{
     if(node->left == NULL && node->right == NULL){
       free(node);
-      return null;
+      return NULL;
     }
     else if(node->left == NULL){
       BNode *temp1 = (BNode *)malloc(sizeof(BNode));
