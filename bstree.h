@@ -24,7 +24,7 @@ void printTree(BNode *node);
 
 void writeInFile(char *eName);
 
-void readFile();
+struct BNode *readFile(BNode *node, char *eName);
 
 
 #endif

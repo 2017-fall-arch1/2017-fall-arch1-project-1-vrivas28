@@ -118,7 +118,7 @@ main()
 
   while(cont == 1)
     {
-      prinf("Please enter one of these commands.\n (1) Add new employee.\n"
+      printf("Please enter one of these commands.\n (1) Add new employee.\n"
 	    "(2) Remove employee.\n (3) Display list of employees.\n"
 	    "(4) Add employees from file.\n"
 	    "(5) Write employees' names to file.\n (6) EXIT \n");
