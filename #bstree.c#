@@ -64,7 +64,7 @@ BNode* removeNode(BNode *node, char *eName)
     else{
       BNode *temp3 = (BNode *)malloc(sizeof(BNode));
       temp3 = minNode(node->right);
-      node->name = temp3 ->name;
+      node->name = temp3->name;
       node->right = removeNode(node->right,temp3->name);
     }
   }
