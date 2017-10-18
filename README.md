@@ -11,5 +11,5 @@ For this program that tree will be printed in-order format.
 This code was referenced from
 
 Book: Starting our with Java from Control Structures through Data Structure
-Website: https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/
+Website: https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/:
 * This website was used for the delete method of bstree.c.
